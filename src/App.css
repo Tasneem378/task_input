@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  list-style: none;
 }
 
 .App-logo {
@@ -11,6 +12,15 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.listItem {
+  list-style: none;
+}
+.Container {
+  display: flex;
+}
+.CompList {
+  border: 3px solid darkgrey;
 }
 
 .App-header {
