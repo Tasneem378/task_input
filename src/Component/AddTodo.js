@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-function InputTask(props) {
+function AddTodo(props) {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
 
@@ -21,6 +21,6 @@ function InputTask(props) {
   );
 }
 
-export default InputTask;
+export default AddTodo;
 
 

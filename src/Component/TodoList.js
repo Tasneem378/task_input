@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Task from "./Task";
-import InputTask from "./InputTask";
+import TodoTask from "./TodoTask";
+import AddTodo from "./AddTodo";
 
-function List() {
+function TodoList() {
   const [tasks, setTasks] = useState([]);
 
   const addItem = (input) => {
@@ -12,26 +12,26 @@ function List() {
     setTasks(arr);
   };
   const onDelete = (task) => {
-    const newtasks = tasks.filter((item ) => {
-     return item !== task;
+    const newtasks = tasks.filter((element ) => {
+     return element !== task;
     });
    console.log(setTasks(newtasks));
   };
   const onToggleComplete = (task) => {
-    const newarr=tasks.map((t, completed)=>{
-      if(t.title===completed)
-      return task.completed
-             
-        setTasks([...tasks,t.completed, !t.completed]);        
-                                    
+    const newtasks =tasks.map((item)=>{
+        if(item===task){
+        task.completed=!task.completed;
+        }
+        return item;
     }) 
-    console.log(setTasks(newarr));      
+
+    setTasks(newtasks)      
   };   
   return (
     <div>
-      <InputTask addItem={addItem} />
-      {tasks.map((task) => (
-        <Task
+      <AddTodo addItem={addItem} />
+      {tasks.map((task,index) => (
+        <TodoTask key={index}
           onDelete={onDelete}
           task={task}
           onToggleComplete={onToggleComplete}
@@ -41,5 +41,4 @@ function List() {
   );
 }
 
-export default List;
-
+export default TodoList;
